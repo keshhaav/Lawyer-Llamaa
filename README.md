@@ -1,4 +1,4 @@
-# Lawyer Llama: Indian Constitution Legal Assistant 2023 🦙⚖️🇮🇳
+# Lawyer Llama: Indian Constitution based Legal Assistant 2023 🦙⚖️🇮🇳
 
 Lawyer Llama is an intelligent legal assistant powered by LLaMA and built with Streamlit, specifically designed to provide expert guidance on the Indian Constitution as of 2023. This application provides precise, context-aware legal information by leveraging advanced language models and vector search technology.
 
