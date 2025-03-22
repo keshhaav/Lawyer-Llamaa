@@ -3,7 +3,7 @@ langchain
 langchain-community
 langchain-huggingface
 huggingface-hub
-pinecone-client
+pinecone
 sentence-transformers
 PyPDF2
 python-dotenv
