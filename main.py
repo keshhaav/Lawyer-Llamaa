@@ -76,7 +76,7 @@ def setup_vector_store():
         model_kwargs={'device': 'cpu'},
         encode_kwargs={'normalize_embeddings': False}
     )
-    pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_API_ENV)
+    
     pc = Pinecone(api_key=PINECONE_API_KEY)
     index = pc.Index("pdfchat")
     vector_store = PineconeVectorStore(index=index, embedding=embeddings)
