@@ -4,6 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEndpoint
 from pinecone import Pinecone
+import Pinecone
 from langchain_community.vectorstores import Pinecone as LangchainPinecone
 from huggingface_hub import InferenceClient
 from langchain.prompts import PromptTemplate
@@ -76,9 +77,9 @@ def setup_vector_store():
         model_kwargs={'device': 'cpu'},
         encode_kwargs={'normalize_embeddings': False}
     )
-    pc = Pinecone(api_key=PINECONE_API_KEY)
-    index_name = "pdfchat"
-    return LangchainPinecone.from_existing_index(index_name=index_name, embedding=embeddings)
+    pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_API_ENV)
+    index = pinecone.Index("pdfchat")
+    return LangchainPinecone(index, embeddings)
 
 @st.cache_resource
 def setup_qa_chain():
