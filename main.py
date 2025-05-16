@@ -67,7 +67,7 @@ Response:"""
 
 @st.cache_resource
 def get_client():
-    return InferenceClient(model=MODEL_NAME, api_key=HUGGINGFACE_API_KEY)
+    return InferenceClient(provider="hf-inference", model=MODEL_NAME, api_key=HUGGINGFACE_API_KEY)
 
 @st.cache_resource
 def setup_vector_store():
@@ -77,8 +77,10 @@ def setup_vector_store():
         encode_kwargs={'normalize_embeddings': False}
     )
     pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_API_ENV)
-    index = pinecone.Index("pdfchat")
-    return LangchainPinecone(index, embeddings)
+    pc = Pinecone(api_key=PINECONE_API_KEY)
+    index = pc.Index("pdfchat")
+    vector_store = PineconeVectorStore(index=index, embedding=embeddings)
+    return vector_store
 
 @st.cache_resource
 def setup_qa_chain():
