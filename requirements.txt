@@ -8,4 +8,4 @@ sentence-transformers
 PyPDF2
 python-dotenv
 langchain-pinecone
-langchain-openai
+
