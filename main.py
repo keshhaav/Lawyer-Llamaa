@@ -67,7 +67,7 @@ Response:"""
 
 @st.cache_resource
 def get_client():
-    return InferenceClient(provider="hf-inference", model=MODEL_NAME, api_key=HUGGINGFACE_API_KEY)
+    return InferenceClient(model=MODEL_NAME, api_key=HUGGINGFACE_API_KEY)
 
 @st.cache_resource
 def setup_vector_store():
