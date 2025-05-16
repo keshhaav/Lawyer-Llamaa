@@ -97,17 +97,6 @@ def setup_qa_chain():
 
     prompt = PromptTemplate(template=CHAT_TEMPLATE, input_variables=["context", "question"])
 
-    return RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=docsearch.as_retriever(search_kwargs={"k": 5}),
-        return_source_documents=True,
-        chain_type_kwargs={
-            "prompt": prompt,
-            "verbose": True
-        },
-    )
-
 def get_streaming_response(context, question, max_retries=3):
     for attempt in range(max_retries):
         try:
