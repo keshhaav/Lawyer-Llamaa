@@ -69,7 +69,7 @@ Response:"""
 
 @st.cache_resource
 def get_client():
-    return InferenceClient(model=MODEL_NAME, api_key=HUGGINGFACE_API_KEY)
+    return InferenceClient(provider="novita", model=MODEL_NAME, api_key=HUGGINGFACE_API_KEY)
 
 @st.cache_resource
 def setup_vector_store():
@@ -86,13 +86,13 @@ def setup_vector_store():
 
 @st.cache_resource
 def setup_qa_chain():
-    llm = HuggingFaceEndpoint(
-        endpoint_url=f"https://api-inference.huggingface.co/models/{MODEL_NAME}",
-        huggingfacehub_api_token=HUGGINGFACE_API_KEY,
-        task="text-generation",
-        temperature=0.7,  
-        max_new_tokens=512,
-        repetition_penalty=1.1,
+    prompt = PromptTemplate(template=SYSTEM_PROMPT, input_variables=["context", "question"])
+    return RetrievalQA.from_chain_type(
+        llm=get_client(),
+        chain_type="stuff",
+        retriever=docsearch.as_retriever(search_kwargs={"k": 5}),
+        return_source_documents=True,
+        chain_type_kwargs={"prompt": prompt, "verbose": True},
     )
 
     prompt = PromptTemplate(template=CHAT_TEMPLATE, input_variables=["context", "question"])
