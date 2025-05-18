@@ -1,8 +1,8 @@
-# Lawyer Llama: Indian Constitution based Legal Assistant 2023 🦙⚖️🇮🇳
+# Lawyer Llama: Indian Constitution based Legal Assistant🦙⚖️🇮🇳
 
 Lawyer Llama is an intelligent legal assistant powered by LLaMA and built with Streamlit, specifically designed to provide expert guidance on the Indian Constitution as of 2023. This application provides precise, context-aware legal information by leveraging advanced language models and vector search technology.
 
-Check it out here just don't rate limit my account https://lawyer-llamaa.streamlit.app/
+Test it out here  https://lawyer-llamaa.streamlit.app/ just don't rate limit my api
 
 ## Overview
 
@@ -18,7 +18,7 @@ Lawyer Llama is designed to:
 
 - 💬 Interactive chat interface
 - 📚 Context-aware responses from Indian constitutional documents
-- 🔍 Advanced vector search capabilities
+- 🔍 Advanced vector search capabilities (Serverless index)
 - 🔄 Streaming responses for better user experience
 - 🧠 Powered by Meta's LLaMA model
 - 📝 Chat history management
@@ -48,5 +48,4 @@ Before running the application, make sure to set up the following secrets:
 ```
 HUGGINGFACE_API_KEY=your_huggingface_api_key
 PINECONE_API_KEY=your_pinecone_api_key
-PINECONE_API_ENV=your_pinecone_environment
 ```
