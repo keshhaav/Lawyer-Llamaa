@@ -7,8 +7,7 @@ from langchain_community.vectorstores import Pinecone as LangchainPinecone
 from huggingface_hub import InferenceClient
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
-import sys
-import time
+
 
 st.set_page_config(page_title="Lawyer Llama", layout="centered")
 
@@ -83,7 +82,7 @@ if st.button("Send", key='send_button') and query:
         response += chunk_content
         response_placeholder.markdown(f"**Lawyer Llama:** {response}")
     st.session_state.chat_history.append((query, response))
-    st.experimental_rerun()
+    st.rerun()
 
 if st.button("Clear Chat History", key='clear_button'):
     st.session_state.chat_history = []
