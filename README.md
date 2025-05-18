@@ -11,7 +11,7 @@ Lawyer Llama is designed to:
 - Provide accurate, context-based information about Indian constitutional law
 - Answer queries related to the Indian Constitution and its amendments up to 2023
 - Maintain conversation history for seamless interaction
-- Generate precise responses using the LLaMA 3.2-1B-Instruct model
+- Generate precise responses using the LLaMA 3.1-8B-Instruct model
 - Search through legal documents using Pinecone vector database
 
 ## Features
@@ -28,7 +28,7 @@ Lawyer Llama is designed to:
 ## Technical Stack
 
 - **Frontend**: Streamlit
-- **Language Model**: Meta-LLaMA 3.2-1B-Instruct
+- **Language Model**: Meta-LLaMA 3.1-8B-Instruct
 - **Vector Store**: Pinecone
 - **Embeddings**: Sentence Transformers
 - **Document Processing**: LangChain
