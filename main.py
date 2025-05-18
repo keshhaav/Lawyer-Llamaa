@@ -87,4 +87,4 @@ if st.button("Send", key='send_button') and query:
 if st.button("Clear Chat History", key='clear_button'):
     st.session_state.chat_history = []
     st.success("Chat history cleared.")
-    st.experimental_rerun()
+    st.rerun()
