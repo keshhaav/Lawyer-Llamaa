@@ -8,7 +8,6 @@ from huggingface_hub import InferenceClient
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 
-
 st.set_page_config(page_title="Lawyer Llama", layout="centered")
 
 HUGGINGFACE_API_KEY = st.secrets["HUGGINGFACE_API_KEY"]
@@ -55,15 +54,12 @@ st.title("Lawyer Llama")
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
 
-
 for user_query, bot_response in st.session_state.chat_history:
     st.markdown(f"<div style='margin: 5px;display: inline-block;color: white; padding: 8px; background-color: #818589; border-radius: 5px;'>You: {user_query}</div>", unsafe_allow_html=True)
     st.markdown(f"<div style='margin: 5px; padding: 8px; border-radius: 5px;'>Lawyer Llama: {bot_response}</div>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
 chathistory=st.session_state.chat_history
-
-
 
 query = st.text_input("Ask your legal question:",key='query_input', value=' ' )
 if st.button("Send", key='send_button') and query:
