@@ -1,7 +1,6 @@
 import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEndpoint
-from pinecone import Pinecone, ServerlessSpec
 import pinecone
 from langchain_pinecone import PineconeVectorStore
 from langchain_community.vectorstores import Pinecone as LangchainPinecone
