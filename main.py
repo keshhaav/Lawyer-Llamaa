@@ -2,6 +2,7 @@ import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEndpoint
 from pinecone import Pinecone, ServerlessSpec
+import pinecone
 from langchain_pinecone import PineconeVectorStore
 from langchain_community.vectorstores import Pinecone as LangchainPinecone
 from huggingface_hub import InferenceClient
@@ -42,7 +43,7 @@ def vector_store():
         model_kwargs={'device': 'cpu'},
         encode_kwargs={'normalize_embeddings': False}
     )
-    pc = Pinecone(api_key=PINECONE_API_KEY)
+    pc = pinecone.init(api_key=PINECONE_API_KEY)
     index = pc.Index("pdfchat")
     vector_store = PineconeVectorStore(index=index, embedding=embeddings)
     return vector_store
